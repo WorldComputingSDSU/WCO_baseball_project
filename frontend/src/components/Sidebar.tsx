@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Home, BarChart2, Settings, Menu, User } from "lucide-react";
+import { BarChart2, Settings, Menu, User } from "lucide-react";
 
 
 interface SidebarProps {

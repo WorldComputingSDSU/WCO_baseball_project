@@ -39,3 +39,6 @@ coverage/
 *.seed
 *.pid.lock
 
+# Project context (internal documentation)
+PROJECT_CONTEXT.md
+

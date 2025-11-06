@@ -1,15 +1,12 @@
 /* CSS Module - automatically scoped to this component */
 .pageContainer {
-    background-image: url('/aztec_cal.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%);
     padding-top: 80px; /* Space below fixed navbar (navbar h-16 = 64px + 16px spacing) */
 }
 
 .contentSection {
     /* Add any hitters-specific content-section styles here */
-    height: 80vh;
+    min-height: 80vh;
     width: 90vw;
     display: flex;
     flex-direction: row; /* Sidebar on left, content on right */
@@ -20,6 +17,7 @@
     font-size: 16px;
     padding-top: 0; /* Removed - padding now on pageContainer */
     gap: 1rem; /* Space between sidebar and content */
+    background: transparent; /* Remove any default background */
 }
 
 .sidebarWrapper {
