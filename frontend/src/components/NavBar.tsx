@@ -34,7 +34,7 @@ export function Navbar() {
           className="h-10 w-auto" 
         />
         <span className="ml-3 text-xl font-bold text-white transition-colors hidden sm:block">
-          Aztec Baseball
+          SDSU Aztec Baseball
         </span>
       </Link>
       

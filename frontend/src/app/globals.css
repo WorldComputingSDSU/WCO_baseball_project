@@ -31,7 +31,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background: rgba(23, 23, 23, 0.95); /* Dark grey matching --foreground */
+  backdrop-filter: blur(30px);
   backdrop-filter: blur(50px);
   box-shadow: 0px 0px 30px rgba(227,228, 237, 0.37);
   border: 1.5px solid rgba(255, 255, 255, 0.18);
@@ -323,4 +323,20 @@ body {
   height: 1.25rem;
   width: 1.25rem;
   margin-right: 0.5rem;
+}
+
+/* Small screen adjustments so navbar fills available width and radius is reduced */
+@media (max-width: 640px) {
+  .navbar {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 0.75rem);
+    max-width: none;
+    border-radius: 12px;
+    padding: 0 0.75rem;
+  }
+
+  .main-content {
+    padding-top: calc(var(--navbar-height) + 0.5rem);
+  }
 }

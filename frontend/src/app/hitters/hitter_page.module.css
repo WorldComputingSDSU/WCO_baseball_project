@@ -20,6 +20,7 @@
     font-size: 16px;
     padding-top: 0; /* Removed - padding now on pageContainer */
     gap: 1rem; /* Space between sidebar and content */
+    background-color: #ffffff;
 }
 
 .sidebarWrapper {
@@ -37,3 +38,6 @@
     overflow-y: auto; /* Allow scrolling if content is too tall */
 }
 
+.tableSection {
+    background-color: aqua;
+}
