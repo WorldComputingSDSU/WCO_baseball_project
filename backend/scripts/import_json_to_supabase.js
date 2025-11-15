@@ -8,7 +8,7 @@ const supabase = require('../src/services/supabase_client'); // uses backend/.en
 // Config
 const JSON_FILE = path.resolve(__dirname, '../output_jsons/output.json'); // change if needed
 const TABLE = 'pitch_data'; // <-- change to your table name
-const CHUNK_SIZE = 200; // number of rows per insert
+const CHUNK_SIZE = 100; // number of rows per insert
 const UPSERT = false; // true = upsert (update on conflict), false = insert only
 const ON_CONFLICT = 'id'; // column name or array for onConflict when using upsert
 
@@ -66,9 +66,12 @@ function transformRow(row) {
         console.error('Chunk error:', res.error);
         failed += chunk.length;
       } else {
-        const count = Array.isArray(res.data) ? res.data.length : (res.data ? 1 : 0);
+        // Some Supabase/PostgREST responses don't return the inserted rows (res.data may be []).
+        // Treat a successful response with no error as the whole chunk having been accepted.
+        const returnedCount = Array.isArray(res.data) ? res.data.length : (res.data ? 1 : 0);
+        const count = returnedCount > 0 ? returnedCount : chunk.length;
         inserted += count;
-        console.log(`Chunk success, inserted: ${count}`);
+        console.log(`Chunk success, inserted: ${count} (returned ${returnedCount})`);
       }
       // small pause to avoid rate limits (optional)
       await new Promise(r => setTimeout(r, 200));

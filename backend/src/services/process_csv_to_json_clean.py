@@ -5,6 +5,8 @@ from typing import Iterable, Dict, List, Any
 
 # Columns to keep (in this exact order)
 COLUMNS: List[str] = [
+    "Date",
+    "GameUID",
     "Pitcher",
     "PitcherThrows",
     "Batter",
